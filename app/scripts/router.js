@@ -1,18 +1,39 @@
+//Node Modules
 import $ from 'jquery';
 import Backbone from 'backbone';
+import _ from 'underscore';
 
-import renderMenu from "./views/menu";
+//Render Modules
+import renderMenu from './views/menu';
+import renderOrder from './views/order';
+//KEY TESTING
+// import renderTestMap from './views/test';
 
+//Collection Generators
 import Beers from './collections/beers';
 import Foods from './collections/foods';
 import Games from './collections/games';
+import Orders from './collections/orders';
+import OrderItem from './models/orderItem';
+//KEY TESTING
+// import MenuItems from './collections/menuItems';
 
+//Containers
 const menuContainer = $('.menu-container');
-const orderContainer = $('.orderContainer');
+const orderContainer = $('.order-container');
 
+//Data Structuring
+let data = [];
 let beerData = new Beers();
 let foodData = new Foods();
 let gameData = new Games();
+let allOrders = new Orders();
+let currentOrder = new OrderItem();
+//KEY TESTING
+// let MenuChoices = new MenuItems();
+
+//Array Loaded to DRY the menu creation
+data.push(beerData, foodData, gameData);
 
 const Router = Backbone.Router.extend({
   routes: {
@@ -22,15 +43,18 @@ const Router = Backbone.Router.extend({
   },
   home() {
     console.log('hello');
+    menuContainer.empty();
   },
   order() {
     beerData.fetch();
     foodData.fetch();
     gameData.fetch();
-
     console.log('mother');
-    // console.log(beerData);
-    menuContainer.append(renderMenu(beerData, foodData, gameData));
+    menuContainer.append(renderMenu(data, currentOrder));
+    currentOrder.on('update', () => {
+      orderContainer.empty();
+      orderContainer.append(renderOrder(currentOrder));
+    });
   },
   orderConfirmation() {
     console.log('hello father');

@@ -2,18 +2,20 @@ import $ from 'jquery';
 
 import renderItem from './menu-item';
 
-function renderMenu(beers, foods, games) {
+// function renderMenu(beers, foods, games) {
+function renderMenu(data, orderData) {
   const menu = $(`
     <ul>
     </ul>
     `);
-    let test = beers.models;
-    console.log(beers.get(24));
-    test.forEach((data, i, arr) => {
-      console.log(1);
-    });
-    console.log(foods);
-    console.log(games);
+     data.forEach(function(course, i, arr) {
+      //  console.log(course);
+       course.on('update', () => {
+        course.forEach(function(item, i, arr){
+         menu.append(renderItem(item, orderData));
+        });
+      });
+     });
     return menu;
 }
 
