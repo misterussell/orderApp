@@ -51,7 +51,7 @@ const Router = Backbone.Router.extend({
     gameData.fetch();
     console.log('mother');
     menuContainer.append(renderMenu(data, currentOrder));
-    currentOrder.on('update', () => {
+    currentOrder.on('change', () => {
       orderContainer.empty();
       orderContainer.append(renderOrder(currentOrder));
     });

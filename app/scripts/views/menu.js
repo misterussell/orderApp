@@ -3,12 +3,12 @@ import $ from 'jquery';
 import renderItem from './menu-item';
 
 // function renderMenu(beers, foods, games) {
-function renderMenu(data, orderData) {
+function renderMenu(menuData, orderData) {
   const menu = $(`
     <ul>
     </ul>
     `);
-     data.forEach(function(course, i, arr) {
+     menuData.forEach(function(course, i, arr) {
       //  console.log(course);
        course.on('update', () => {
         course.forEach(function(item, i, arr){

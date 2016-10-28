@@ -3,11 +3,14 @@ import $ from 'jquery';
 function renderOrderItem(item) {
   const singleItem = $(`
     <li>
-      <span class="name">${item.get('title')}</span>
-      <span class="price">${item.get('price')}</span>
+      <span class="name"></span>
+      <span class="price"></span>
       <button class="delete">Remove</button>
     </li>
     `);
+
+    console.log(item[0]);
+    console.log(item[1]);
 
     singleItem.find('button').on('click', (e) => {
       item.destroy({
@@ -16,7 +19,7 @@ function renderOrderItem(item) {
         }
       });
     });
-    
+
   return singleItem;
 }
 
