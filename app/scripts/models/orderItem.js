@@ -6,25 +6,27 @@ export default Backbone.Model.extend({
     items: [],
     total: 0,
     prices: [],
-    //Tax not currently being used
     tax: 0
   },
   idAttribute: '_id',
-  calculateTotal(addition) {
-    // let runningTotal = this.get('total') + calculateTax(this.get('total'));
-    let runningTotal = this.get('total');
-    let addItem = runningTotal + addition;
-    this.set({total: addItem});
+  calculateTotal() {
+    let runningTotal = 0;
+    this.get('prices').forEach((price, i, arr) => {
+      runningTotal += price;
+    });
+    let total = runningTotal + this.get('tax');
+    this.set({total: total});
+    return total;
   },
   addPrice(addition) {
     let allPrices = this.get('prices');
     let newList = allPrices.concat(addition);
     this.set({prices: newList});
   },
-  calculateTax() {
-    let currentOrder = this.get('total');
-    let orderTax = currentOrder * 0.08;
-    return orderTax;
+  calculateTax(addition) {
+    let currentTax = this.get('tax');
+    let addTax = currentTax + (addition * 0.08);
+    this.set({tax: addTax});
   },
   addItem(addition) {
     let cart = this.get('items');

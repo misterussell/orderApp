@@ -14,14 +14,17 @@ function renderOrder(order) {
     `);
   let tax = $(`
     <h4>
-      ${order.calculateTax()}
+      Tax: ${order.get('tax').toFixed(2)}
     </h4>
     `);
   let orderTotal = $(`
     <h3>
-      Order Total: ${order.get('total')}
+      Order Total: ${order.get('total').toFixed(2)}
     </h3>
     `);
+
+  //Calculate new total - generates from scratch, not dynamically
+  order.calculateTotal();
 
   //Merge Individual Items for Visual Purposes
   let items = order.get('items');
