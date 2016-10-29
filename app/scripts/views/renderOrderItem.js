@@ -3,14 +3,11 @@ import $ from 'jquery';
 function renderOrderItem(item) {
   const singleItem = $(`
     <li>
-      <span class="name"></span>
-      <span class="price"></span>
+      <span class="name">${item[0]}</span>
+      <span class="price">${item[1]}</span>
       <button class="delete">Remove</button>
     </li>
     `);
-
-    console.log(item[0]);
-    console.log(item[1]);
 
     singleItem.find('button').on('click', (e) => {
       item.destroy({

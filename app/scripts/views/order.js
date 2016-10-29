@@ -12,35 +12,29 @@ function renderOrder(order) {
     <ul>
     </ul>
     `);
-  let orderTotal = $(`
-    <h3>
-    </h3>
-    `);
   let tax = $(`
     <h4>
+      ${order.calculateTax()}
     </h4>
     `);
+  let orderTotal = $(`
+    <h3>
+      Order Total: ${order.get('total')}
+    </h3>
+    `);
 
+  //Merge Individual Items for Visual Purposes
   let items = order.get('items');
-  let prices = order.get('total');
-  // console.log(prices);
+  let prices = order.get('prices');
+  //Merge Individual Items for Visual Purposes
+  let itemsWithPrices = _.zip(items, prices);
 
-  let combos = _.zip(items, prices);
-  // console.log(combos);
-
-  combos.forEach(function(item, i, arr){
-    renderOrderItem(item);
+  itemsWithPrices.forEach(function(item, i, arr){
+    cart.append(renderOrderItem(item));
   });
 
-  // order.get('items').on('change', () => {
-  //   order.get('items').forEach(function(item, i, arr){
-  //     console.log(item);
-  //     // cart.append(renderOrderItem(item));
-  //   });
-  // });
-
   //Fully loaded parent to append
-  orderContainer.append(orderTitle, cart, orderTotal);
+  orderContainer.append(orderTitle, cart, tax, orderTotal);
 
   return orderContainer;
 }
