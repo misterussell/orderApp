@@ -1,16 +1,26 @@
 nav {
   width: 100%;
   margin: 0 auto;
-  h1 {
-    display: inline-block;
-  }
 
-  .logo {
-    width: 5%;
-    display: inline-block;
-    float: right;
-  }
+  .title {
+    text-align: center;
+    margin: 0 auto;
+    // width: 20%;
+    h1 {
+      vertical-align: middle;
+      display: inline-block;
+      padding: 0 auto;
+      margin: 0 auto;
+    }
 
+    .logo {
+      vertical-align: middle;
+      width: 5%;
+      display: inline-block;
+      margin: 1% 2.5%;
+    }
+
+  }
   .hero {
     display: block;
     // width: 80vw;

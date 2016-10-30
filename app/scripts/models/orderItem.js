@@ -24,17 +24,31 @@ export default Backbone.Model.extend({
     this.set({prices: newList});
   },
   calculateTax(addition) {
-    let currentTax = this.get('tax');
-    let addTax = currentTax + (addition * 0.08);
-    this.set({tax: addTax});
+    // let currentTax = this.get('tax');
+    // let addTax = currentTax + (addition * 0.08);
+    // this.set({tax: addTax});
+    let prices = this.get('prices');
+    let total = prices.reduce(function(a, b) {
+      return a + b;
+    }, 0);
+    let tax = total * 0.08;
+    this.set({tax});
+    return tax;
   },
   addItem(addition) {
     let cart = this.get('items');
     let updatedCart = cart.concat(addition);
     this.set({items: updatedCart});
+    console.log(this.get('items'));
   },
-  removeItem() {
-
+  removeItem(location) {
+    let itemRemove = this.get('items').splice(location, 1);
+    let items = this.get('items');
+    // console.log(items, itemsTest);
+    let priceRemove = this.get('prices').splice(location, 1);
+    let prices = this.get('prices');
+    this.set({items, prices});
+    console.log(this.get('items'), this.get('prices'));
   },
   url: 'http://tiny-za-server.herokuapp.com/collections/maxorder'
 });

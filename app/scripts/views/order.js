@@ -30,8 +30,6 @@ function renderOrder(order) {
     </button>
     `);
 
-  //Calculate new total - generates from scratch, not dynamic
-  order.calculateTotal();
 
   //Merge Individual Items for Visual Purposes
   let items = order.get('items');
@@ -44,7 +42,8 @@ function renderOrder(order) {
     cart.append(`<li>Cart Empty</li>`);
   } else {
     itemsWithPrices.forEach(function(item, i, arr){
-      cart.append(renderOrderItem(item));
+      let location = itemsWithPrices.indexOf(item);
+      cart.append(renderOrderItem(item, location, order));
     });
   }
 

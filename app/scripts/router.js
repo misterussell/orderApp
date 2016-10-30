@@ -54,6 +54,8 @@ const Router = Backbone.Router.extend({
     orderContainer.append(renderOrder(currentOrder));
     currentOrder.on('change', () => {
       orderContainer.empty();
+      currentOrder.calculateTax();
+      currentOrder.calculateTotal();
       orderContainer.append(renderOrder(currentOrder));
     });
   },

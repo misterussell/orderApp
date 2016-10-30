@@ -1,20 +1,26 @@
 import $ from 'jquery';
+import renderOrder from './order';
 
-function renderOrderItem(item) {
+const orderContainer = $('.order-container');
+
+function renderOrderItem(item, location, order) {
   const singleItem = $(`
     <li>
       <span class="name">${item[0]}</span>
       <span class="dollar-amount">${item[1]}</span>
-      <button class="delete">Remove</button>
+      <button class="delete">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
     </li>
     `);
 
     singleItem.find('button').on('click', (e) => {
-      item.destroy({
-        success: () => {
-          alert('Item removed from cart.');
-        }
-      });
+      console.log('this has been removed.');
+      order.removeItem(location);
+      orderContainer.empty();
+      order.calculateTax();
+      order.calculateTotal();
+      renderOrder(order);
     });
 
   return singleItem;

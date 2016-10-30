@@ -41,5 +41,30 @@
   li {
     margin: 2vh 0;
     padding: 0 1vw;
+    vertical-align: middle;
+    @include clearfix;
+
+    .name {
+      vertical-align: middle;
+      display: inline-block;
+      font-size: 1em;
+      padding: .5em;
+    }
+
+    .delete {
+      vertical-align: middle;
+      display: inline-block;
+      float: left;
+      border: none;
+      height: 2em;
+      width: 2em;
+      background-color: $color-background-menu;
+    }
+
+    .dollar-amount {
+      display: inline-block;
+      float: right;
+      padding: .5em;
+    }
   }
 }

@@ -12,6 +12,10 @@
 
   }
 
+  .hover {
+    background: blue;
+  }
+
   .Course-Title {
     border-bottom: solid 1vh $color-border-menu-item;
     padding: 2vh 0;
@@ -26,11 +30,25 @@
     padding: 1vh 0;
     background: $color-background-menu;
     border-bottom: 1vh solid $color-border-menu-item;
+    transition: all .2s;
+
+    &:hover {
+      background: $color-background-hover;
+      width: 90%;
+
+      .dollar-amount {
+        font-size: 2em;
+        transition: all .2s;
+      }
+
+    }
 
     .dollar-amount {
       font-family: $font-fun-title;
+      font-size: 1em;
       float: right;
       margin: 1%;
+      transition: all .2s;
       &::before {
         content: '$';
       }
@@ -38,14 +56,19 @@
 
     h3 {
       font-family: $font-fun-title;
+      font-size: 1.5em;
       display: inline-block;
       margin: 1%;
       padding: 0;
+      width: 80%;
     }
 
     p {
+      font-size: 1.25em;
       color: $color-description;
       margin-left: 1%;
+      width: 40vw;
+      height: 2vw;
     }
   }
 
