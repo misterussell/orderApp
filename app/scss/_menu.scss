@@ -1,6 +1,7 @@
 .menu-container {
   width: 65%;
   float: left;
+  padding: 1% 0;
 
   ul {
     margin: 0 2vw;
@@ -9,35 +10,42 @@
       margin-bottom: 0;
     }
 
-
   }
 
   .Course-Title {
-    border-bottom: solid 1vh black;
-    padding: 2vh;
+    border-bottom: solid 1vh $color-border-menu-item;
+    padding: 2vh 0;
     width: 82.5%;
     display: inline-block;
+    font-family: $font-fun-title;
   }
 
   li {
     width: 80%;
     margin-left: 2.5%;
     padding: 1vh 0;
+    background: $color-background-menu;
+    border-bottom: 1vh solid $color-border-menu-item;
 
     .dollar-amount {
+      font-family: $font-fun-title;
       float: right;
-      margin: 1em 0;
+      margin: 1%;
       &::before {
         content: '$';
       }
     }
 
     h3 {
+      font-family: $font-fun-title;
       display: inline-block;
+      margin: 1%;
+      padding: 0;
     }
 
     p {
       color: $color-description;
+      margin-left: 1%;
     }
   }
 

@@ -7,7 +7,7 @@ function renderMenu(menuData, orderData) {
   const menu = $(`
     <ul>
     <h1>
-      Menu
+      Pub Menu
     </h1>
     </ul>
     `);

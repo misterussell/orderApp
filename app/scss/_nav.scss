@@ -4,14 +4,27 @@ nav {
   h1 {
     display: inline-block;
   }
+
   .logo {
-    width: 10vw;
+    width: 5%;
     display: inline-block;
+    float: right;
   }
 
   .hero {
     display: block;
     // width: 80vw;
     margin: 0 auto;
+    position: relative;
+
+    h1 {
+      position: absolute;
+      bottom: 0;
+      left: 1%;
+      font-family: $font-fun-title;
+      font-size: 2em;
+      text-shadow: 0px 0px 2px $color-background-menu;
+
+    }
   }
 }
