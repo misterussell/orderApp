@@ -3,7 +3,6 @@ import Backbone from 'backbone';
 import orderItem from '../models/orderItem';
 
 export default Backbone.Collection.extend({
-  model: orderItem,
   url: 'http://tiny-za-server.herokuapp.com/collections/maxorder',
 });
 

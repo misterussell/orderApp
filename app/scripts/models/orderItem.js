@@ -4,8 +4,8 @@ export default Backbone.Model.extend({
   defaults: {
     time: new Date(),
     items: [],
-    total: 0,
     prices: [],
+    total: 0,
     tax: 0
   },
   idAttribute: '_id',

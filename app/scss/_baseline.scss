@@ -1,0 +1,22 @@
+body {
+  font-size: 62.5%;
+  margin: 0 auto;
+  width: 85vw;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.dollar-amount {
+
+  &::before {
+    content: '$';
+  }
+}

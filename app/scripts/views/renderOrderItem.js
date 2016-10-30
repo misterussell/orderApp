@@ -4,7 +4,7 @@ function renderOrderItem(item) {
   const singleItem = $(`
     <li>
       <span class="name">${item[0]}</span>
-      <span class="price">${item[1]}</span>
+      <span class="dollar-amount">${item[1]}</span>
       <button class="delete">Remove</button>
     </li>
     `);

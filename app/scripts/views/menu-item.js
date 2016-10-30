@@ -4,7 +4,7 @@ function renderItem(menuItem, order) {
   const item = $(`
     <li>
       <h2>${menuItem.get('item')}</h2>
-      <span class="price">${menuItem.get('price')}</span>
+      <span class="dollar-amount">${(menuItem.get('price')).toFixed(2)}</span>
       <p>${menuItem.get('description')}</p>
     </li>
     `);

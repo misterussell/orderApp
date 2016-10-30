@@ -13,7 +13,7 @@ import renderOrder from './views/order';
 import Beers from './collections/beers';
 import Foods from './collections/foods';
 import Games from './collections/games';
-import Orders from './collections/orders';
+// import Orders from './collections/orders';
 import OrderItem from './models/orderItem';
 //KEY TESTING
 // import MenuItems from './collections/menuItems';
@@ -27,7 +27,7 @@ let data = [];
 let beerData = new Beers();
 let foodData = new Foods();
 let gameData = new Games();
-let allOrders = new Orders();
+// let allOrders = new Orders();
 let currentOrder = new OrderItem();
 //KEY TESTING
 // let MenuChoices = new MenuItems();
@@ -51,6 +51,7 @@ const Router = Backbone.Router.extend({
     gameData.fetch();
     console.log('mother');
     menuContainer.append(renderMenu(data, currentOrder));
+    orderContainer.append(renderOrder(currentOrder));
     currentOrder.on('change', () => {
       orderContainer.empty();
       orderContainer.append(renderOrder(currentOrder));

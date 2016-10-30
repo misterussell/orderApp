@@ -8,9 +8,11 @@ function renderMenu(menuData, orderData) {
     <ul>
     </ul>
     `);
+  const menuCourses = ['Beer', 'Mains', 'Games'];
      menuData.forEach(function(course, i, arr) {
-      //  console.log(course);
-       course.on('update', () => {
+      course.on('update', () => {
+        //Load Course Titles
+        menu.append(`<h1 class="Course-Title">${menuCourses[i]}</h2>`);
         course.forEach(function(item, i, arr){
          menu.append(renderItem(item, orderData));
         });
