@@ -2,6 +2,10 @@ body {
   font-size: 62.5%;
   margin: 0 auto;
   width: 85vw;
+  box-sizing: border-box;
+  border-left: solid .01vw black;
+  border-right: solid .01vw black;
+  @include clearfix;
 }
 
 ul {
@@ -12,11 +16,4 @@ ul {
 
 img {
   width: 100%;
-}
-
-.dollar-amount {
-
-  &::before {
-    content: '$';
-  }
 }

@@ -3,7 +3,7 @@ import $ from 'jquery';
 function renderItem(menuItem, order) {
   const item = $(`
     <li>
-      <h2>${menuItem.get('item')}</h2>
+      <h3>${menuItem.get('item')}</h3>
       <span class="dollar-amount">${(menuItem.get('price')).toFixed(2)}</span>
       <p>${menuItem.get('description')}</p>
     </li>

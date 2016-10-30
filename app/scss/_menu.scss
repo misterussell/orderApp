@@ -1,0 +1,44 @@
+.menu-container {
+  width: 65%;
+  float: left;
+
+  ul {
+    margin: 0 2vw;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+
+  }
+
+  .Course-Title {
+    border-bottom: solid 1vh black;
+    padding: 2vh;
+    width: 82.5%;
+    display: inline-block;
+  }
+
+  li {
+    width: 80%;
+    margin-left: 2.5%;
+    padding: 1vh 0;
+
+    .dollar-amount {
+      float: right;
+      margin: 1em 0;
+      &::before {
+        content: '$';
+      }
+    }
+
+    h3 {
+      display: inline-block;
+    }
+
+    p {
+      color: $color-description;
+    }
+  }
+
+}
