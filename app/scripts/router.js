@@ -6,17 +6,14 @@ import _ from 'underscore';
 //Render Modules
 import renderMenu from './views/menu';
 import renderOrder from './views/order';
-//KEY TESTING
-// import renderTestMap from './views/test';
 
 //Collection Generators
 import Beers from './collections/beers';
 import Foods from './collections/foods';
 import Games from './collections/games';
-// import Orders from './collections/orders';
+
+//Order Generator
 import OrderItem from './models/orderItem';
-//KEY TESTING
-// import MenuItems from './collections/menuItems';
 
 //Containers
 const menuContainer = $('.menu-container');
@@ -28,9 +25,7 @@ let beerData = new Beers();
 let foodData = new Foods();
 let gameData = new Games();
 // let allOrders = new Orders();
-let currentOrder = new OrderItem();
-//KEY TESTING
-// let MenuChoices = new MenuItems();
+// let currentOrder = new OrderItem();
 
 //Array Loaded to DRY the menu creation
 data.push(beerData, foodData, gameData);
@@ -46,9 +41,12 @@ const Router = Backbone.Router.extend({
     menuContainer.empty();
   },
   order() {
+    let currentOrder = new OrderItem();
     beerData.fetch();
     foodData.fetch();
     gameData.fetch();
+    orderContainer.empty();
+    orderContainer.show();
     console.log('mother');
     menuContainer.append(renderMenu(data, currentOrder));
     orderContainer.append(renderOrder(currentOrder));
@@ -61,6 +59,8 @@ const Router = Backbone.Router.extend({
   },
   orderConfirmation() {
     console.log('hello father');
+    menuContainer.empty();
+    orderContainer.hide();
   }
 });
 

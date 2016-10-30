@@ -60,6 +60,7 @@ function renderOrder(order) {
         {order},
         { success: () => {
           alert('Order has been placed. Thanks!');
+          location.hash = 'orderConfirm';
           }
         }
       );
