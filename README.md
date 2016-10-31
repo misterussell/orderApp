@@ -4,3 +4,5 @@
 - The project relies on the following API endpoint: [Pub Item API](https://tiy-austin-front-end-engineering.github.io/restaurantApi/pub.json)
 
 - Utilizes MVVM and single use principles
+
+- Planning Wireframe: [Wireframe here](https://github.com/misterussell/orderApp/blob/master/order_wireframe.jpg)
