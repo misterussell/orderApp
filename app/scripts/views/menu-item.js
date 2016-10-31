@@ -12,8 +12,6 @@ function renderItem(menuItem, order) {
   item.on('click', (e) => {
     order.addItem(menuItem.get('item'));
     order.addPrice(menuItem.get('price'));
-    // order.calculateTax(menuItem.get('price'));
-    console.log('Item Ordered');
   });
 
   return item;

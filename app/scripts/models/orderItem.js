@@ -39,7 +39,6 @@ export default Backbone.Model.extend({
     let cart = this.get('items');
     let updatedCart = cart.concat(addition);
     this.set({items: updatedCart});
-    console.log(this.get('items'));
   },
   removeItem(location) {
     let itemRemove = this.get('items').splice(location, 1);
@@ -48,7 +47,6 @@ export default Backbone.Model.extend({
     let priceRemove = this.get('prices').splice(location, 1);
     let prices = this.get('prices');
     this.set({items, prices});
-    console.log(this.get('items'), this.get('prices'));
   },
   url: 'http://tiny-za-server.herokuapp.com/collections/maxorder'
 });
